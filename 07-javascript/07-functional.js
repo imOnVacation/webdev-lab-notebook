@@ -22,20 +22,25 @@ const characters = [
 const mapNameFamily = (characters) => {
   // Return an array with the name and house of each character
   // Format: "Arya, of House Stark"
-
-  return characters;
+  const nameFamily = characters.map(
+    (item) => `${item.name}, of House ${item.house}`
+  );
+  return nameFamily;
 };
 
 const filterFamily = (characters, house) => {
   // Return an array with only the characters from a given house
-
-  return characters;
+  const filter = characters.filter((item) => item.house === house);
+  return filter;
 };
 
 const reduceHouses = (characters) => {
   // Return an object with the number of characters from each house
-
-  return characters;
+  const houses = characters.reduce((acc, item) => {
+    acc[item.house] = acc[item.house] ? acc[item.house] + 1 : 1;
+    return acc;
+  }, {});
+  return houses;
 };
 
 console.log(mapNameFamily(characters));
